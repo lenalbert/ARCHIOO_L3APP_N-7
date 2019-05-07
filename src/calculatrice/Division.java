@@ -9,15 +9,15 @@ import java.lang.ArithmeticException;
  *
  * @author lenal
  */
-public class Division {
+public class Division extends Operation {
     
-    protected double div(double a, double b) throws ArithmeticException{
+    @Override
+    protected double calcul(double a, double b){
         if(b==0){
-            throw new ArithmeticException("Division by 0 is not allowed");
+            System.out.println("La division pas zero n'est pas autorisée");
+            return 0;
         }
-        double res = a/b;
-        System.out.println(a+" / "+b+" = "+res );
-        return res;
+        return a/b;
     }
     
 }

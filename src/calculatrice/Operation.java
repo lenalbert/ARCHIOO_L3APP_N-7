@@ -7,12 +7,12 @@ package calculatrice;
 
 /**
  *
- * @author lenal
+ * @author Sofia
  */
-public class Addition extends Operation{
+public class Operation {
     
-    @Override
-    protected double calcul(double a, double b){
-        return a+b;
+    protected double calcul(double a,double b){
+        
+       return 0; 
     }
 }

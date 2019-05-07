@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,21 +5,16 @@
  */
 package calculatrice;
 
+
 /**
  *
  * @author lenal
  */
-public class Application {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        CalculatorConf.init();
-        IHM ihm = new LigneCommande();
-        ihm.lancer();
+public class Calculator {
+    
+    protected double appelOperation(double a, double b, char operator){
+        Operation op = CalculatorConf.getOperation(operator);
+        return op.calcul(a, b);
     }
     
 }
-
-
