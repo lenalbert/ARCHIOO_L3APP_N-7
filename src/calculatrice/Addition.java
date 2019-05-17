@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package calculatrice;
 
-/**
- *
- * @author lenal
- */
+package calculatrice;
+import java.lang.IllegalArgumentException;
+
 public class Addition extends Operation{
     
     @Override
-    protected double calcul(double a, double b){
-        return a+b;
+    protected double calcul(double a, double b) throws IllegalArgumentException{
+        try{
+            return a+b;
+        } catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("Operande(s) incorrecte(s)");
+        }
     }
 }

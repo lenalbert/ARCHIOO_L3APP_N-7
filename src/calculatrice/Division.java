@@ -1,23 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculatrice;
+import calculatrice.exeptions.*;
+import static calculatrice.exeptions.Exceptions.methodeDeclenchement;
+import static calculatrice.exeptions.MonEnumException.UTILISATION_DU_ZERO;
 import java.lang.ArithmeticException;
-/**
- *
- * @author lenal
- */
 public class Division extends Operation {
     
     @Override
-    protected double calcul(double a, double b){
-        if(b==0){
+    protected double calcul(double a, double b) throws MonException{
+        try{
+            methodeDeclenchement(b);
             System.out.println("La division pas zero n'est pas autorisée");
             return 0;
+        }catch (MonException e){
+            System.out.println(e.getDefaultMessage()+UTILISATION_DU_ZERO);
         }
-        return a/b;
+        try{
+            return a/b;
+        } catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("Operande(s) incorrecte(s)");
+        }
     }
     
 }

@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package calculatrice;
 
 import static calculatrice.CalculatorConf.config;
+import static calculatrice.exeptions.Exceptions.methodeDeclenchement;
+import static calculatrice.exeptions.MonEnumException.UTILISATION_DU_ZERO;
+import calculatrice.exeptions.MonException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author lenal
- */
 public class LigneCommande implements IHM{
     
     static Scanner sc = new Scanner(System.in);
@@ -41,7 +38,17 @@ public class LigneCommande implements IHM{
         }
         
         Calculator calculer = new Calculator();
-        System.out.println(calculer.appelOperation(a, b, operator));
+        try {
+            System.out.println(calculer.appelOperation(a, b, operator));
+        } catch (MonException e) {
+            Logger.getLogger(LigneCommande.class.getName()).log(Level.INFO, null, e);
+        }
+        
+        
+        
+        
     }
+    
+    
     
 }

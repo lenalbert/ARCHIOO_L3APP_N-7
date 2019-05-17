@@ -1,20 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calculatrice;
+import calculatrice.exeptions.MonException;
 
-
-/**
- *
- * @author lenal
- */
 public class Calculator {
     
-    protected double appelOperation(double a, double b, char operator){
-        Operation op = CalculatorConf.getOperation(operator);
-        return op.calcul(a, b);
+    protected double appelOperation(double a, double b, char operator) throws MonException {
+        try{
+            Operation op = CalculatorConf.getOperation(operator);
+            return op.calcul(a, b);
+        }catch(IllegalArgumentException e){
+            throw new IllegalArgumentException("Operateur incorrect");
+        }
+        
     }
     
 }
